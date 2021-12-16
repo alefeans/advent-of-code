@@ -7,12 +7,19 @@
 
 ;; --- Part One  ---
 
+;; Solution using partiton + reduce
 (defn part-1 [input]
-  (:total (reduce (fn [{:keys [total previous]} number]
-                    (if (> number previous)
-                      {:previous number :total (inc total)}
-                      {:previous number :total total}))
-                  {:total 0 :previous (first input)} (rest input))))
+  (->> (partition 2 1 input)
+       (reduce (fn [result [right left]] (if (> left right) (inc result) result)) 0)))
+
+
+;; Solution using a map to control the increment (reusable and fastest one!)
+(defn part-1 [input]
+  (:result (reduce (fn [{:keys [result previous]} number]
+                     (if (> number previous)
+                       {:previous number :result (inc result)}
+                       {:previous number :result result}))
+                   {:result 0 :previous (first input)} (rest input))))
 
 ;; --- Part Two ---
 
