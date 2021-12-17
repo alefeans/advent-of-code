@@ -10,7 +10,6 @@
   (->> (partition 2 1 input)
        (reduce (fn [result [right left]] (if (> left right) (inc result) result)) 0)))
 
-
 ;; Solution using a map to control the increment (reusable and fastest one!)
 (defn part-1 [input]
   (:result (reduce (fn [{:keys [result previous]} number]
