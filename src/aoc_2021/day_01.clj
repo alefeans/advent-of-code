@@ -5,8 +5,6 @@
   (->> (str/split-lines (slurp "resources/aoc_2021/day_01.txt"))
        (map #(Integer/parseInt %))))
 
-;; --- Part One  ---
-
 ;; Solution using partiton + reduce
 (defn part-1 [input]
   (->> (partition 2 1 input)
@@ -20,8 +18,6 @@
                        {:previous number :result (inc result)}
                        {:previous number :result result}))
                    {:result 0 :previous (first input)} (rest input))))
-
-;; --- Part Two ---
 
 (defn part-2 [input]
   (->> (partition 3 1 input)
