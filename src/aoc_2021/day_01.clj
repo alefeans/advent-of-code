@@ -2,7 +2,7 @@
   (:require [clojure.string :as str]))
 
 (def input
-  (->> (str/split (slurp "resources/aoc_2021/day_01.txt") #"\n")
+  (->> (str/split-lines (slurp "resources/aoc_2021/day_01.txt"))
        (map #(Integer/parseInt %))))
 
 ;; --- Part One  ---
