@@ -2,7 +2,7 @@
   (:require [clojure.string :as str]))
 
 (def input (->> (str/split-lines (slurp "resources/aoc_2021/day_02.txt"))
-                (map (fn [entry] (let [[c v]    (str/split entry #" ")
+                (map (fn [entry] (let [[c v]   (str/split entry #" ")
                                        command (keyword c)
                                        value   (Integer/parseInt v)]
                                    (if (= command :down)
